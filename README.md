@@ -18,7 +18,7 @@ git clone https://github.com/bonino97/API-HireAModel.git
 2. Navega al directorio del proyecto:
 
 ```
-cd API-HireAModel
+cd API
 ```
 
 3. Instala las dependencias:
