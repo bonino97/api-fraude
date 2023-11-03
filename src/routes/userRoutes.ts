@@ -11,18 +11,18 @@ import { decodeToken } from '../middlewares/decodeToken';
 const router = express.Router();
 
 // Get all users
-router.get('/', getAllUsers);
+// router.get('/', getAllUsers);
 
 // Get a single user by ID
-router.get('/:id', getUserById);
+// router.get('/:id', getUserById);
 
 // Create a new user
-router.post('/', createUser);
+// router.post('/', createUser);
 
 // Update a user by ID
-router.put('/', decodeToken, updateUser);
+// router.put('/', decodeToken, updateUser);
 
 // Delete a user by ID
-router.delete('/:id', deleteUser);
+// router.delete('/:id', deleteUser);
 
 export default router;
