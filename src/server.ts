@@ -26,8 +26,6 @@ mongoose
   .connect(process.env.DATABASE_URL || '')
   .then(() => {
     console.info(`✔ Database connected successfully to API`);
-
-    // initTenant(mongoose, 'HireAModel');
     // initRoles(mongoose);
     // initWorkflow(mongoose);
   })

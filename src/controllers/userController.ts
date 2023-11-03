@@ -60,11 +60,7 @@ export const updateUser = async (req: Request, res: Response) => {
     )
       .select('-password -verifyCode -verifyCodeExpires')
       .populate('role')
-      .select('name permissions')
-      .populate('tenant')
-      .select('name logo')
-      .populate('credit')
-      .select('credits')) as IUser;
+      .select('name permissions')) as IUser;
 
     if (!updatedUser) {
       return sendResponse(res, 404, 'User not found');

@@ -11,6 +11,8 @@ import { Role } from '../models/Role';
 import { logging } from '../utils/logging';
 import { ROLES_ENUM } from '../enums/roles.enum';
 
+dotenv.config();
+
 const NAMESPACE = 'Auth Controller';
 
 // Registrar un nuevo usuario
@@ -78,20 +80,20 @@ export const signIn = async (req: Request, res: Response) => {
         email: user.email,
         role: user.role,
       },
-      dotenv.config().parsed!.JWT_SECRET_KEY!,
+      process.env.JWT_SECRET_KEY as string,
       {
         expiresIn: '240h',
       }
     );
 
-    const userWithRoleAndTenant = await User.findById(user.id)
+    const userWithRole = await User.findById(user.id)
       .select('-password -verifyCode -verifyCodeExpires')
       .populate('role')
       .select('name');
 
     return sendResponse(res, 200, 'Logged in successfully', {
       accessToken,
-      user: userWithRoleAndTenant,
+      user: userWithRole,
     });
   } catch (error) {
     logging.error(NAMESPACE, 'SignIn Method', error);
