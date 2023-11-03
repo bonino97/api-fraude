@@ -111,7 +111,7 @@ export const signInUsingToken = async (req: Request, res: Response) => {
 
     const decodedToken = jwt.verify(
       accessToken,
-      dotenv.config().parsed!.JWT_SECRET_KEY!
+      process.env.JWT_SECRET_KEY as string
     );
     const userId = (decodedToken as any).userId;
     const user = await User.findById(userId)
@@ -222,7 +222,7 @@ export const me = async (req: Request, res: Response) => {
 
     const decodedToken = jwt.verify(
       accessToken,
-      dotenv.config().parsed!.JWT_SECRET_KEY!
+      process.env.JWT_SECRET_KEY as string
     );
 
     const userId = (decodedToken as any).userId;
