@@ -25,7 +25,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 mongoose
   .connect(process.env.DATABASE_URL || '')
   .then(() => {
-    console.info(`✔ Database connected successfully to ${process.env.TENANT}`);
+    console.info(`✔ Database connected successfully to API`);
 
     // initTenant(mongoose, 'HireAModel');
     // initRoles(mongoose);
